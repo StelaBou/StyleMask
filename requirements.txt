@@ -1,0 +1,14 @@
+numpy
+scipy
+matplotlib
+imageio
+Pillow
+ninja
+opencv-python
+tqdm
+scikit-image
+sklearn
+wandb
+face-alignment
+kornia==0.4.1
+chumpy
