@@ -43,6 +43,7 @@ class Inference_demo():
 
 		self.save_grid = args['save_grid']
 		self.save_image = args['save_image']
+		self.resize_image = args['resize_image']
 		
 		if not os.path.exists(self.output_path):
 			os.makedirs(self.output_path, exist_ok=True)
@@ -160,11 +161,11 @@ class Inference_demo():
 		with torch.no_grad():
 			# Get source style space
 			source_img, style_source, w_source, noise_source = generate_image(self.G, source_code, self.truncation, self.trunc, self.image_resolution, self.split_sections,
-					input_is_latent = self.input_is_latent, return_latents= True, resize_image = True)
-			
+					input_is_latent = self.input_is_latent, return_latents= True, resize_image = self.resize_image)
+
 			# Get target style space
 			target_img, style_target, w_target, noise_target = generate_image(self.G, target_code, self.truncation, self.trunc, self.image_resolution, self.split_sections,
-					input_is_latent = self.input_is_latent, return_latents= True, resize_image = True)
+					input_is_latent = self.input_is_latent, return_latents= True, resize_image = self.resize_image)
 		
 			# Get reenacted image
 			masks_per_layer = []
@@ -182,8 +183,8 @@ class Inference_demo():
 
 			new_style_space = generate_new_stylespace(style_source, style_target, mask, num_layers_control = self.num_layers_control)
 			new_style_space = list(torch.split(tensor=new_style_space, split_size_or_sections=self.split_sections, dim=1))
-			reenacted_img = decoder(self.G, new_style_space, w_source, noise_source, resize_image = True)
-		
+			reenacted_img = decoder(self.G, new_style_space, w_source, noise_source, resize_image = self.resize_image)
+			
 		return source_img, target_img, reenacted_img
 
 	def check_paths(self):
@@ -267,6 +268,7 @@ def main():
 		########## Visualization ########## 
 		--save_grid							: Generate figure with source, target and reenacted image
 		--save_image						: Save only the reenacted image
+		--resize_image						: Resize image from 1024 to 256
 
 	
 	python run_inference.py --output_path ./results --save_grid 
@@ -289,6 +291,8 @@ def main():
 	parser.set_defaults(save_grid=False)
 	parser.add_argument('--save_image', dest='save_image', action='store_true', help="Save only the reenacted image")
 	parser.set_defaults(save_image=False)
+	parser.add_argument('--resize_image', dest='resize_image', action='store_true', help="Resize image from 1024 to 256")
+	parser.set_defaults(resize_image=False)
 	
 
 	# Parse given arguments

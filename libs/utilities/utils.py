@@ -82,10 +82,10 @@ def save_image(image, save_image_dir):
 	)
 
 def save_grid(source_img, target_img, reenacted_img, save_path):
-
-	grid_image = torch.zeros(3, 256 , 3 * 256)
-	grid_image[:, :, :256] = source_img.squeeze(0)
-	grid_image[:, :, 256:512] = target_img.squeeze(0)
-	grid_image[:, :, 512:] = reenacted_img.squeeze(0)
+	dim = source_img.shape[2]
+	grid_image = torch.zeros(3, dim , 3 * dim)
+	grid_image[:, :, :dim] = source_img.squeeze(0)
+	grid_image[:, :, dim:dim*2] = target_img.squeeze(0)
+	grid_image[:, :, dim*2:] = reenacted_img.squeeze(0)
 	save_image(grid_image, save_path)
 
