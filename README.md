@@ -52,7 +52,7 @@ In order to use our method, make sure to download and save the required models u
 
 | Path | Description
 | :--- | :----------
-|[StyleGAN2-FFHQ-1024](https://drive.google.com/file/d/1I01HVu9UUyzAV7rNNnbzyFqPF0msebD7/view?usp=share_link)  | Official StyleGAN2 model trained on FFHQ 1024x1024 output resolution converted using [rosinality](FFHQ 1024x1024 output resolution).
+|[StyleGAN2-FFHQ-1024](https://drive.google.com/file/d/1I01HVu9UUyzAV7rNNnbzyFqPF0msebD7/view?usp=share_link)  | Official StyleGAN2 model trained on FFHQ 1024x1024 output resolution converted using [rosinality](https://github.com/rosinality/stylegan2-pytorch)(FFHQ 1024x1024 output resolution).
 |[e4e-FFHQ-1024](https://drive.google.com/file/d/1DexTMA3QMRNwQ3Xhdojki8UAYuY3g0uu/view?usp=share_link)  | Official e4e inversion model trained on FFHQ dataset taken from [e4e](https://github.com/omertov/encoder4editing). In case of using real images use this model to invert them into the latent space of StyleGAN2.
 |[stylemask-model](https://drive.google.com/file/d/1_V_MnFB8rh5qrQ3zJk00fKXb81uHjIU8/view?usp=share_link)  | Our pretrained StyleMask model on FFHQ 1024x1024 output resolution.
 
