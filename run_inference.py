@@ -218,6 +218,7 @@ class Inference_demo():
 			if inversion: # Real image
 				# Preprocess and invert real images into the W+ latent space using Encoder4Editing method
 				cropped_image = preprocess_image(source_samples[i], self.fa, save_filename = None)	
+				print(cropped_image.shape)
 				source_img = image_to_tensor(cropped_image).unsqueeze(0).cuda()
 				inv_image, source_code = invert_image(source_img, self.encoder, self.G, self.truncation, self.trunc)
 				

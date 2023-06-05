@@ -11,15 +11,10 @@ def read_image_opencv(image_path):
 
 	return img.astype('uint8')
 
-" Load image from file path to tensor [-1,1] range "
-def image_to_tensor(image_file):
+" image numpy array to tensor [-1,1] range "
+def image_to_tensor(image):
 	max_val = 1
 	min_val = -1
-	if os.path.isfile(image_file):
-		image = cv2.imread(image_file, cv2.IMREAD_COLOR) # BGR order
-		image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB).astype('uint8')
-	else:
-		image = image_file
 	if image.shape[0]>256:
 		image, _ = image_resize(image, 256)
 	image_tensor = torch.tensor(np.transpose(image,(2,0,1))).float().div(255.0)	
