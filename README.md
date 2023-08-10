@@ -71,7 +71,7 @@ We provide additional models needed during training.
 | Path | Description
 | :--- | :----------
 |[IR-SE50 Model](https://drive.google.com/file/d/1s5pWag4AwqQyhue6HH-M_f2WDV4IVZEl/view?usp=sharing)  | Pretrained IR-SE50 model taken from [InsightFace_Pytorch](https://github.com/TreB1eN/InsightFace_Pytorch) for use in our identity loss.
-|[DECA models](https://drive.google.com/file/d/1qZxbF13uuUpp-tCJ0kFIbSWH7h_Y-q2m/view?usp=sharing)  | Pretrained models taken from [DECA](https://github.com/YadiraF/DECA). Extract data.tar.gz under  `./libs/DECA/`.
+|[DECA models](https://drive.google.com/file/d/1BHVJAEXscaXMj_p2rOsHYF_vaRRRHQbA/view?usp=sharing)  | Pretrained models taken from [DECA](https://github.com/YadiraF/DECA). Extract data.tar.gz under  `./libs/DECA/`.
 
 By default, we assume that all pretrained models are downloaded and saved to the directory `./pretrained_models`. 
 
